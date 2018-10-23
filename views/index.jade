@@ -1,0 +1,25 @@
+.container
+  .hero-unit
+    h1 BMI Form (Web Version 2018)
+    if person.name
+      p= person.name + '\'s BMI is ' + bmi.toString()
+    form(method='POST' action='/')
+      .form-group.row
+        label(for='name').col-sm-2.col-form-label Name:
+        .col-sm-6
+          input#name.form-control.form-control-lg(type='text', placeholder='first and last' name='person[name]' value=person.name)
+      .form-group.row
+        label(for='name').col-sm-2.col-form-label Weight(kg):
+        .col-sm-6
+          input#name.form-control.form-control-lg(type='text', placeholder='100' name='person[weight]' value=person.weight)
+      .form-group.row
+        label(for='name').col-sm-2.col-form-label Height(m):
+        .col-sm-6
+          input#name.form-control.form-control-lg(type='text', placeholder='200' name='person[height]' value=person.height)
+      .form-group.row
+        label(for='name').col-sm-2.col-form-label Date(dd.mm.yyyy):
+        .col-sm-6
+          input#name.form-control.form-control-lg(type='text', placeholder='15.12.1876' name='person[date]' value=person.date)
+      button.btn.btn-primary(type='submit') Submit
+      &nbsp;
+      button.btn.btn-success(type='button', id='reset_button') Reset
