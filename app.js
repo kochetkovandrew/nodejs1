@@ -11,6 +11,21 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+const Store = require('openrecord/store/mysql')
+
+store = new Store({
+//  type: 'mysql',
+  host: 'localhost',
+  database: 'nodejs1',
+  user: 'root',
+  autoLoad: true,
+  plugins: [require('openrecord/lib/base/dynamic_loading')],
+  // migrations: './migrations/*'
+  migrations: [
+    require('./migrations/20181028183000_create_bmis.js')
+  ]
+})
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
